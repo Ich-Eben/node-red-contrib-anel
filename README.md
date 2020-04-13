@@ -53,7 +53,8 @@ Control a single io of the Anel device.
 
 Receive the sensor states of the Anel device.
 
-
+## Example
+![exaple](https://user-images.githubusercontent.com/10551698/79148012-228e4580-7dc5-11ea-8e6d-2f981e5ab9cf.PNG)
 
 License (MIT)
 -------------
