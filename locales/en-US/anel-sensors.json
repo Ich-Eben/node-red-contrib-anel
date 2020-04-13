@@ -1,0 +1,16 @@
+{
+	"anel-sensors": {
+		"label": {
+			"name": "Name",
+			"server": "Server",
+			"topic": "topic",
+			"fullMsg": "Full Msg",
+			"fullMsgBox": "Send full Message"
+		},
+		"placeholder": {
+			"name": "",
+			"server": "",
+			"topic": "enter a topic"
+		}
+	}
+}

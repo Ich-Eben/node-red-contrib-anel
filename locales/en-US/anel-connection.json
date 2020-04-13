@@ -1,0 +1,18 @@
+{
+	"anel-connection": {
+		"label": {
+			"host": "Host",
+			"port": "Port",
+			"username": "Username",
+			"password": "Password",
+			"interval" : "Interval"
+		},
+		"placeholder": {
+			"host": "for example: 192.168.178.70",
+			"port": "for example: 80",
+			"username": "for example: user7",
+			"password": "for example: anel",
+			"interval": "for example: 30 in s"
+		}
+	}
+}

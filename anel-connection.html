@@ -1,0 +1,60 @@
+<script type="text/x-red" data-template-name="anel-connection">
+    <div class="form-row">
+        <label for="node-config-input-host"><i class="fa fa-globe"></i> <span data-i18n="anel-connection.label.host"></span></label>
+        <input type="text" id="node-config-input-host" data-i18n="[placeholder]anel-connection.placeholder.host">
+    </div>
+    <div class="form-row">
+        <label for="node-config-input-port"><i class="fa fa-sign-out"></i> <span data-i18n="anel-connection.label.port"></span></label>
+        <input type="number" id="node-config-input-port" data-i18n="[placeholder]anel-connection.placeholder.port">
+    </div> 
+    <div class="form-row">
+        <label for="node-config-input-username"><i class="fa fa-sign-out"></i> <span data-i18n="anel-connection.label.username"></span></label>
+        <input type="text" id="node-config-input-username" data-i18n="[placeholder]anel-connection.placeholder.username">
+    </div> 
+    <div class="form-row">
+        <label for="node-config-input-password"><i class="fa fa-sign-in"></i> <span data-i18n="anel-connection.label.password"></span></label>
+        <input type="password" id="node-config-input-password" data-i18n="[placeholder]anel-connection.placeholder.password">
+    </div> 
+    <div class="form-row">
+        <label for="node-config-input-interval"><i class="fa fa-times-circle"></i> <span data-i18n="anel-connection.label.interval"></span></label>
+        <input type="number" id="node-config-input-interval" data-i18n="[placeholder]anel-connection.placeholder.interval">
+    </div> 
+</script>
+
+<script type="text/javascript">
+    function checkIP(val,len=6) {
+      part=val.split(".");
+      var ok=(part.length==len);
+      for (var i = 0; (i < part.length) && ok; i++) {
+        ok = ok && ((parseInt(part[i])==part[i]) && part[i]>=0 && part[i]<=255)
+      }
+      return ok;
+    }
+    RED.nodes.registerType('anel-connection', {
+        category: 'config',
+        defaults: {
+            host: {
+                value: '',
+                required: true,
+                validate: function(val){ return checkIP(val,4); }
+            },
+            port: {
+                value: 80,
+                required: true,  
+                validate: RED.validators.number()
+            },
+            interval: {
+                value: 30,
+                required: true,  
+                validate: RED.validators.number()
+            }
+        },
+		credentials: {
+			username: {type:"text"},
+			password: {type:"password"}
+		},
+        label: function() {
+            return this.host+":"+this.port;
+        }
+    });
+</script>

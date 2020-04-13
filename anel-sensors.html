@@ -1,0 +1,40 @@
+<script type="text/x-red" data-template-name="anel-sensors">
+	<div class="form-row">
+        <label for="node-input-server"><i class="fa fa-globe"></i> <span data-i18n="anel-sensors.label.server"></span></label>
+        <input type="text" id="node-input-server">
+    </div>
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> <span data-i18n="anel-sensors.label.name"></span></label>
+        <input type="text" id="node-input-name" data-i18n="[placeholder]anel-sensors.placeholder.name">
+    </div>
+	<div class="form-row">
+        <label for="node-input-fullMsg"><i class="fa fa-sign-out"></i> <span data-i18n="anel-sensors.label.fullMsg"></span></label>
+        <input type="checkbox" id="node-input-fullMsg" style="display:inline-block; width:22px; vertical-align:baseline;"><span data-i18n="anel-sensors.label.fullMsgBox"></span>
+        </label>
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="anel-sensors">
+    <p>A node that provides a single anel sensors</p>
+</script>
+
+<script type="text/javascript">
+    RED.nodes.registerType('anel-sensors',{
+        category: 'network',
+        color: '#eeeeee',
+        defaults: {
+			server: {
+				required: true, 
+				type: "anel-connection"
+			},
+            name: {value:""},
+			fullMsg: {value: false}
+        },
+        inputs:0,
+        outputs:1,
+        icon: "icon.png",
+        label: function() {
+            return this.name||"anel-sensors";
+        }
+    });
+</script>

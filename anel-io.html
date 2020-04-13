@@ -1,0 +1,64 @@
+<script type="text/x-red" data-template-name="anel-io">
+	<div class="form-row">
+        <label for="node-input-server"><i class="fa fa-globe"></i> <span data-i18n="anel-io.label.server"></span></label>
+        <input type="text" id="node-input-server">
+    </div>
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> <span data-i18n="anel-io.label.name"></span></label>
+        <input type="text" id="node-input-name" data-i18n="[placeholder]anel-io.placeholder.name">
+    </div>
+	<div class="form-row">
+        <label for="node-input-ioNo"><i class="fa fa-code"></i> <span data-i18n="anel-io.label.ioNo"></span></label>
+        <select id="node-input-ioNo">
+            <option value="1" data-i18n="anel-io.ioNo.1"></option>
+			<option value="2" data-i18n="anel-io.ioNo.2"></option>
+			<option value="3" data-i18n="anel-io.ioNo.3"></option>
+			<option value="4" data-i18n="anel-io.ioNo.4"></option>
+			<option value="5" data-i18n="anel-io.ioNo.5"></option>
+			<option value="6" data-i18n="anel-io.ioNo.6"></option>
+			<option value="7" data-i18n="anel-io.ioNo.7"></option>
+			<option value="8" data-i18n="anel-io.ioNo.8"></option>
+        </select>
+    </div>
+	<div class="form-row">
+        <label for="node-input-onChange"><i class="fa fa-sign-out"></i> <span data-i18n="anel-io.label.onChange"></span></label>
+        <input type="checkbox" id="node-input-onChange" style="display:inline-block; width:22px; vertical-align:baseline;"><span data-i18n="anel-io.label.onChangeBox"></span>
+        </label>
+    </div>
+	<div class="form-row">
+        <label for="node-input-fullMsg"><i class="fa fa-sign-out"></i> <span data-i18n="anel-io.label.fullMsg"></span></label>
+        <input type="checkbox" id="node-input-fullMsg" style="display:inline-block; width:22px; vertical-align:baseline;"><span data-i18n="anel-io.label.fullMsgBox"></span>
+        </label>
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="anel-io">
+    <p>A node that provides a single anel io</p>
+</script>
+
+<script type="text/javascript">
+    RED.nodes.registerType('anel-io',{
+        category: 'network',
+        color: '#eeeeee',
+        defaults: {
+			server: {
+				required: true, 
+				type: "anel-connection"
+			},
+            name: {value:""},
+			ioNo: {
+				value:"1",
+				required: true,
+				validate: RED.validators.number()
+			},
+			onChange: {value: true},
+			fullMsg: {value: false}
+        },
+        inputs:1,
+        outputs:1,
+        icon: "icon.png",
+        label: function() {
+            return this.name||"anel-io";
+        }
+    });
+</script>
